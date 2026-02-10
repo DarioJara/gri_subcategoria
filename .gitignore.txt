@@ -1,0 +1,9 @@
+# Ignorar carpetas de Python
+__pycache__/
+venv/
+.env
+
+# Ignorar datos de Docker/SQL Server
+data_db/
+*.mdf
+*.ldf
