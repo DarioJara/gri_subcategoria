@@ -1,0 +1,54 @@
+﻿Codigo_Variable,Nombre,Descripcion,Fuente,Ticker_ID,Frecuencia,Unidad,Transformacion,Relevancia_GRI,Asset_Classes
+US_SP500,S&P 500 Index,Índice principal de renta variable USA (500 mayores empresas),FRED,SP500,D,Index,,Ciclo de Mercado - Indicador principal de sentimiento equity USA,"Renta Variable USA, Renta Variable Táctico"
+US_NASDAQ,NASDAQ Composite Index,Índice de tecnología y growth USA,FRED,NASDAQCOM,D,Index,,Ciclo de Mercado - Sentimiento tecnología/growth,Renta Variable USA
+US_RUSSELL2000,Russell 2000 Index,Índice de small caps USA,FRED,RU2000PR,D,Index,,Ciclo de Mercado - Sentimiento small caps / riesgo,Renta Variable USA
+EU_STOXX600,STOXX Europe 600,Índice principal de renta variable Europa (600 empresas),OECD,STOXX600,D,Index,,Ciclo de Mercado - Indicador principal equity Europa,Renta Variable Europa
+GLOBAL_MSCI_WORLD,MSCI World Index,Índice global de renta variable desarrollada,FRED,MXWO,D,Index,,Ciclo de Mercado - Sentimiento global equity,Renta Variable Global
+EM_MSCI_EM,MSCI Emerging Markets Index,Índice de mercados emergentes,FRED,MXEF,D,Index,,Ciclo de Mercado - Sentimiento emergentes,Renta Variable Emergentes
+US_VIX,VIX - CBOE Volatility Index,Índice de volatilidad implícita S&P 500 (Fear Index),FRED,VIXCLS,D,Index,momentum_negative,Ciclo de Mercado - Indicador CLAVE de miedo/estrés,Global Risk Indicator
+EU_VSTOXX,VSTOXX - Euro STOXX 50 Volatility,Índice de volatilidad implícita Euro STOXX 50,FRED,V2TX,D,Index,momentum_negative,Ciclo de Mercado - Fear index Europa,Renta Variable Europa
+US_MOVE,MOVE Index - Bond Volatility,Índice de volatilidad de bonos del Tesoro USA,FRED,MOVE,D,Index,momentum_negative,Ciclo de Mercado - Estrés en renta fija,Renta Fija Gobierno
+US_YIELD_3M,US Treasury 3-Month Yield,Rendimiento bonos del Tesoro USA a 3 meses,FRED,DGS3MO,D,%,,Ciclo Económico - Política monetaria corto plazo,"Renta Fija Gobierno, Monetario"
+US_YIELD_2Y,US Treasury 2-Year Yield,Rendimiento bonos del Tesoro USA a 2 años,FRED,DGS2,D,%,,Ciclo Económico - Expectativas de tipos,Renta Fija Gobierno
+US_YIELD_5Y,US Treasury 5-Year Yield,Rendimiento bonos del Tesoro USA a 5 años,FRED,DGS5,D,%,,Ciclo Económico - Tipos medio plazo,Renta Fija Gobierno
+US_YIELD_10Y,US Treasury 10-Year Yield,Rendimiento bonos del Tesoro USA a 10 años (benchmark),FRED,DGS10,D,%,,Ciclo Económico - BENCHMARK tipos largo plazo,Renta Fija Gobierno
+US_YIELD_30Y,US Treasury 30-Year Yield,Rendimiento bonos del Tesoro USA a 30 años,FRED,DGS30,D,%,,Ciclo Económico - Tipos ultra largo plazo,Renta Fija Gobierno
+US_SPREAD_10Y2Y,US 10Y-2Y Spread,Diferencial 10Y - 2Y (indicador de recesión si negativo),FRED,T10Y2Y,D,pp,,Ciclo Económico - CLAVE: Predictor de recesión,Global Risk Indicator
+US_SPREAD_10Y3M,US 10Y-3M Spread,Diferencial 10Y - 3M (señal temprana de recesión),FRED,T10Y3M,D,pp,,Ciclo Económico - Señal adelantada recesión,Global Risk Indicator
+US_CREDIT_IG_SPREAD,ICE BofA US Corporate IG OAS,Option-Adjusted Spread de bonos corporativos Investment Grade USA,FRED,BAMLC0A0CM,D,bp,momentum_negative,Ciclo de Mercado - Estrés crédito IG,"Renta Fija Corporativa, Global Risk Indicator"
+US_CREDIT_HY_SPREAD,ICE BofA US High Yield OAS,Option-Adjusted Spread de bonos High Yield USA,FRED,BAMLH0A0HYM2,D,bp,momentum_negative,Ciclo de Mercado - Estrés crédito HY (indicador líder),"Renta Fija High Yield, Global Risk Indicator"
+EU_CREDIT_IG_SPREAD,ICE BofA Euro Corporate IG OAS,Spread de bonos corporativos Investment Grade EUR,FRED,BAMLHE00EHYIEY,D,bp,momentum_negative,Ciclo de Mercado - Estrés crédito IG Europa,Renta Fija Corporativa EUR
+EU_CREDIT_HY_SPREAD,ICE BofA Euro High Yield OAS,Spread de bonos High Yield EUR,FRED,BAMLHE00EHYIOAS,D,bp,momentum_negative,Ciclo de Mercado - Estrés HY Europa,Renta Fija High Yield EUR
+EM_CREDIT_SPREAD,JPM EMBI Global Spread,Spread de bonos soberanos emergentes,FRED,BAMLEMCBPITRIV,D,bp,momentum_negative,Ciclo de Mercado - Riesgo emergentes,Renta Fija Emergente
+EU_YIELD_2Y,German Bund 2-Year Yield,Rendimiento bonos alemanes a 2 años,ECB,FM.M.U2.EUR.RT.MM.EURIBOR2MD_.HSTA,D,%,,Ciclo Económico - Tipos cortos EUR,Renta Fija Gobierno EUR
+EU_YIELD_10Y,German Bund 10-Year Yield,Rendimiento bonos alemanes a 10 años (benchmark EUR),FRED,IRLTLT01DEM156N,D,%,,Ciclo Económico - BENCHMARK tipos EUR,Renta Fija Gobierno EUR
+US_FINANCIAL_CONDITIONS,Chicago Fed National Financial Conditions Index,Índice de condiciones financieras USA (>0 = restrictivo),FRED,NFCI,W,Index,momentum_negative,Ciclo de Mercado - Condiciones financieras generales,Global Risk Indicator
+US_GDP,US Real GDP,PIB real USA (nivel),FRED,GDPC1,Q,Billions of Chained 2017 Dollars,yoy_pct,Ciclo Económico - Crecimiento económico USA,Global Risk Indicator
+US_CFNAI,Chicago Fed National Activity Index,Índice de actividad económica USA (promedio móvil 3 meses),FRED,CFNAIMA3,M,Index,momentum,Ciclo Económico - INDICADOR PRINCIPAL GRI (CFNAI 2.1),Global Risk Indicator
+US_ISM_MANUFACTURING,ISM Manufacturing PMI,Índice de gerentes de compras manufacturero USA (>50 = expansión),FRED,NAPM,M,Index,momentum,Ciclo Económico - Actividad manufacturera,Global Risk Indicator
+US_ISM_SERVICES,ISM Services PMI,Índice PMI de servicios USA,FRED,NMFCI,M,Index,momentum,Ciclo Económico - Actividad servicios,Global Risk Indicator
+US_INDUSTRIAL_PRODUCTION,Industrial Production Index,Índice de producción industrial USA,FRED,INDPRO,M,Index 2017=100,yoy_pct,Ciclo Económico - Producción industrial,Global Risk Indicator
+US_RETAIL_SALES,Retail Sales,Ventas minoristas USA,FRED,RSXFS,M,Millions of Dollars,yoy_pct,Ciclo Económico - Consumo,Global Risk Indicator
+US_CPI,Consumer Price Index,Índice de precios al consumidor USA (headline),FRED,CPIAUCSL,M,Index 1982-84=100,yoy_pct,Ciclo Económico - Inflación general,Global Risk Indicator
+US_CORE_CPI,Core CPI,IPC subyacente (sin alimentos ni energía),FRED,CPILFESL,M,Index 1982-84=100,yoy_pct,Ciclo Económico - Inflación subyacente (clave Fed),Global Risk Indicator
+US_PCE,Personal Consumption Expenditures Price Index,Índice PCE (preferido por la Fed),FRED,PCEPI,M,Index 2017=100,yoy_pct,Ciclo Económico - Inflación PCE,Global Risk Indicator
+US_CORE_PCE,Core PCE,PCE subyacente (objetivo principal Fed),FRED,PCEPILFE,M,Index 2017=100,yoy_pct,Ciclo Económico - OBJETIVO FED inflación,Global Risk Indicator
+US_INFLATION_EXPECTATIONS_5Y,5-Year Breakeven Inflation Rate,Expectativas de inflación implícitas a 5 años,FRED,T5YIE,D,%,,Ciclo Económico - Expectativas inflación,Global Risk Indicator
+US_INFLATION_EXPECTATIONS_5Y5Y,"5-Year, 5-Year Forward Inflation Expectation",Expectativas inflación 5 años dentro de 5 años (meta Fed),FRED,T5YIFR,D,%,,Ciclo Económico - Anclaje expectativas inflación,Global Risk Indicator
+US_UNEMPLOYMENT_RATE,Unemployment Rate,Tasa de desempleo USA,FRED,UNRATE,M,%,momentum_negative,Ciclo Económico - Mercado laboral,Global Risk Indicator
+US_NONFARM_PAYROLLS,Non-Farm Payrolls,Creación de empleo no agrícola USA (variación mensual),FRED,PAYEMS,M,Thousands,mom_change,Ciclo Económico - Creación empleo (muy seguido),Global Risk Indicator
+US_INITIAL_CLAIMS,Initial Unemployment Claims,Solicitudes iniciales de desempleo (semanal),FRED,ICSA,W,Thousands,momentum_negative,Ciclo Económico - Indicador adelantado empleo,Global Risk Indicator
+US_FED_FUNDS_RATE,Federal Funds Effective Rate,Tipo de interés oficial de la Fed,FRED,FEDFUNDS,M,%,,Ciclo Económico - CLAVE política monetaria,"Global Risk Indicator, Monetario"
+EU_GDP,Eurozone Real GDP,PIB real Eurozona,OECD,NAEXKP01EZQ652S,Q,Index,yoy_pct,Ciclo Económico - Crecimiento Eurozona,Renta Variable Europa
+EU_PMI_MANUFACTURING,Eurozone Manufacturing PMI,PMI manufacturero Eurozona,FRED,EAPMI,M,Index,momentum,Ciclo Económico - Actividad manufacturera EUR,Renta Variable Europa
+EU_PMI_SERVICES,Eurozone Services PMI,PMI servicios Eurozona,OECD,EA_PMI_SERVICES,M,Index,momentum,Ciclo Económico - Actividad servicios EUR,Renta Variable Europa
+EU_HICP,Eurozone HICP,Índice armonizado de precios al consumidor,ECB,ICP.M.U2.Y.000000.3.INX,M,Index 2015=100,yoy_pct,Ciclo Económico - Inflación Eurozona,Renta Variable Europa
+EU_CORE_HICP,Eurozone Core HICP,HICP subyacente (sin energía ni alimentos),ECB,ICP.M.U2.Y.XEF000.3.INX,M,Index 2015=100,yoy_pct,Ciclo Económico - Inflación subyacente EUR,Renta Variable Europa
+EU_UNEMPLOYMENT_RATE,Eurozone Unemployment Rate,Tasa de desempleo Eurozona,OECD,LRHUTTTTEZM156S,M,%,momentum_negative,Ciclo Económico - Mercado laboral EUR,Renta Variable Europa
+EU_ECB_DEPOSIT_RATE,ECB Deposit Facility Rate,Tipo de depósito del BCE (tipo director principal),ECB,FM.D.U2.EUR.4F.KR.DFR.LEV,D,%,,Ciclo Económico - Política monetaria BCE,"Renta Variable Europa, Monetario EUR"
+CN_GDP,China Real GDP,PIB real China,FRED,MKTGDPCNA646NWDB,Q,Billions USD,yoy_pct,Ciclo Económico - Crecimiento China,"Renta Variable Asia ex-Japan, Renta Variable Emergentes"
+CN_PMI_MANUFACTURING,China Manufacturing PMI,PMI manufacturero China (oficial),FRED,CHNPMINTO,M,Index,momentum,Ciclo Económico - Actividad manufacturera China,Renta Variable Asia ex-Japan
+FX_EURUSD,EUR/USD Exchange Rate,Tipo de cambio Euro vs Dólar,FRED,DEXUSEU,D,USD per 1 EUR,,Factor de conversión y carry trade,"FX, Global"
+FX_GBPUSD,GBP/USD Exchange Rate,Tipo de cambio Libra vs Dólar,FRED,DEXUSUK,D,USD per 1 GBP,,Factor de conversión,FX
+FX_USDJPY,USD/JPY Exchange Rate,Tipo de cambio Dólar vs Yen,FRED,DEXJPUS,D,JPY per 1 USD,,Factor de conversión y carry trade,FX
+FX_USDCHF,USD/CHF Exchange Rate,Tipo de cambio Dólar vs Franco Suizo,FRED,DEXSZUS,D,CHF per 1 USD,,Factor de conversión,FX

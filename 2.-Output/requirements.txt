@@ -1,0 +1,31 @@
+# SISTEMA DE DESCARGA AUTOMÁTICA DE VARIABLES MACRO Y DE MERCADO
+# Requisitos de Python para el sistema GRI
+
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+openpyxl>=3.1.0  # Para leer archivos Excel
+
+# APIs de datos públicas
+pandas-datareader>=0.10.0  # FRED, Yahoo Finance, World Bank
+fredapi>=0.5.0  # Federal Reserve Economic Data (recomendado para FRED)
+yfinance>=0.2.0  # Yahoo Finance (índices bursátiles)
+
+# Opcional: Otras fuentes de datos
+# oecd>=0.3.0  # OECD Data
+# ecb-api>=0.1.0  # European Central Bank
+# quandl>=3.7.0  # Quandl/Nasdaq Data Link
+
+# Utilidades
+requests>=2.31.0
+python-dateutil>=2.8.0
+
+# Logging y progreso
+tqdm>=4.65.0  # Barras de progreso (opcional)
+
+# Visualización (opcional)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Testing (opcional)
+pytest>=7.4.0

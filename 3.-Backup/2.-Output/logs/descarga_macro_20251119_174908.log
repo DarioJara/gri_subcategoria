@@ -1,0 +1,28 @@
+2025-11-19 17:49:08,264 - __main__ - INFO - ====================================================================================================
+2025-11-19 17:49:08,264 - __main__ - INFO - SISTEMA DE DESCARGA AUTOMÁTICA DE VARIABLES MACRO Y DE MERCADO - TESTING
+2025-11-19 17:49:08,264 - __main__ - INFO - ====================================================================================================
+2025-11-19 17:49:08,264 - __main__ - INFO - 
+[1] Inicializando catálogo de variables...
+2025-11-19 17:49:08,264 - __main__ - INFO - Catálogo inicializado con 53 variables
+2025-11-19 17:49:08,265 - __main__ - INFO - 
+[2] Exportando diccionario de datos para auditoría...
+2025-11-19 17:49:08,278 - __main__ - INFO - Diccionario de datos exportado a: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\diccionario_datos_macro.csv
+2025-11-19 17:49:08,278 - __main__ - INFO - Total variables documentadas: 53
+2025-11-19 17:49:08,380 - __main__ - INFO - MapeoActivoFactores inicializado
+2025-11-19 17:49:08,803 - __main__ - INFO - Universo invertible cargado: 142 ETFs
+2025-11-19 17:49:08,808 - __main__ - INFO -   - Equities: 93 ETFs
+2025-11-19 17:49:08,809 - __main__ - INFO -   - Fixed Income: 45 ETFs
+2025-11-19 17:49:08,812 - __main__ - INFO -   - Otros: 4 ETFs
+2025-11-19 17:49:08,827 - __main__ - INFO - Total mapeos: 142
+2025-11-19 17:49:08,838 - __main__ - INFO - 
+[4] Resumen estadístico:
+2025-11-19 17:49:08,838 - __main__ - INFO -   - Total variables definidas: 53
+2025-11-19 17:49:08,838 - __main__ - INFO -   - Variables de mercado: 24
+2025-11-19 17:49:08,838 - __main__ - INFO -   - Variables macroeconómicas: 25
+2025-11-19 17:49:08,838 - __main__ - INFO -   - Variables FX: 4
+2025-11-19 17:49:08,838 - __main__ - INFO -   - Total ETFs mapeados: 142
+2025-11-19 17:49:08,838 - __main__ - INFO -   - Media variables por ETF: 12.4
+2025-11-19 17:49:08,838 - __main__ - INFO - 
+====================================================================================================
+2025-11-19 17:49:08,839 - __main__ - INFO - TESTING COMPLETADO - Módulo funcionando correctamente
+2025-11-19 17:49:08,839 - __main__ - INFO - ====================================================================================================

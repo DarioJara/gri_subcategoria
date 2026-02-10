@@ -1,0 +1,15 @@
+2025-12-15 03:26:11,784 - __main__ - INFO - ====================================================================================================
+2025-12-15 03:26:11,784 - __main__ - INFO - SISTEMA DE DESCARGA AUTOMÁTICA DE VARIABLES MACRO Y DE MERCADO - TESTING
+2025-12-15 03:26:11,785 - __main__ - INFO - ====================================================================================================
+2025-12-15 03:26:11,787 - __main__ - INFO - 
+[1] Inicializando catálogo de variables...
+2025-12-15 03:26:11,789 - __main__ - INFO - Catálogo inicializado con 53 variables
+2025-12-15 03:26:11,790 - __main__ - INFO - 
+[2] Exportando diccionario de datos para auditoría...
+2025-12-15 03:26:11,810 - __main__ - INFO - Diccionario de datos exportado a: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\diccionario_datos_macro.csv
+2025-12-15 03:26:11,811 - __main__ - INFO - Total variables documentadas: 53
+2025-12-15 03:26:12,123 - __main__ - INFO - MapeoActivoFactores inicializado
+2025-12-15 03:26:12,946 - __main__ - INFO - Universo invertible cargado: 136 ETFs
+2025-12-15 03:26:12,949 - __main__ - INFO -   - Renta Variable: 92 ETFs
+2025-12-15 03:26:12,950 - __main__ - INFO -   - Renta Fija: 34 ETFs
+2025-12-15 03:26:12,954 - __main__ - INFO -   - Otros: 10 ETFs

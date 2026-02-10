@@ -1,0 +1,292 @@
+En base a esta ruta en donde se encuentran todos los datos que necesitas: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\1.-InputPrompt\1.-Input\1.-Input Considera el siguiente prompt:
+
+PROMPT: GENERACIÓN Y DESCARGA AUTOMÁTICA DE VARIABLES MACRO Y DE MERCADO ASOCIADAS AL UNIVERSO INVERTIBLE
+OBJETIVO
+
+Diseñar y documentar un proceso automatizado que:
+
+Identifique, a partir del universo invertible y sus metadatos, las variables macroeconómicas y de mercado relevantes para cada activo/clase de activo.
+
+Genere el código necesario (preferiblemente en Python, salvo que se indique lo contrario) para descargar y actualizar automáticamente dichas series históricas desde fuentes públicas.
+
+Devuelva Dataframes estructurados y auditables, junto con un diccionario de datos que deje clara la trazabilidad entre:
+
+Activo / Clase de activo
+
+Factor macro / de mercado
+
+Fuente de datos y ticker/ID de serie
+
+Periodo histórico y frecuencia
+
+Este proceso servirá como capa de inputs para el cálculo del GRI, Intérprete y del ACRI descritos en la documentación adjunta.
+
+I. INPUTS DISPONIBLES
+
+El sistema debe leer y utilizar los siguientes ficheros/documentos incluidos en el archivo adjunto /mnt/data/1.-Input.zip:
+
+[Definición del GRI e Intérprete]
+
+Contiene la definición conceptual del GRI (Ciclo de Mercado + Ciclo Económico) y del Intérprete (Momentum, Tendencia, Seasonality).
+
+Usar esta definición para priorizar las variables de mercado y macro que sean coherentes con dichos conceptos.
+
+[Catálogo del Universo Invertible]
+
+Universo de activos invertibles (principalmente ETFs), con sus metadatos:
+
+Clase de activo (Renta Fija Gobierno, Renta Fija Corporativa, Renta Variable, Cash, etc.)
+
+Región/País
+
+Moneda
+
+Sector, vencimiento, rating, si está disponible
+
+Este catálogo debe ser la base para mapear qué variables macro y de mercado corresponden a cada activo/clase de activo.
+
+[Series Históricas de Cotizaciones]
+
+Precios históricos y rendimientos de los activos del universo.
+
+Sirven para:
+
+Alinear temporalmente las series macro/mercado con las fechas de cotización.
+
+Facilitar futuros cálculos de Momentum, volatilidad, etc.
+
+II. DISEÑO DEL CONJUNTO DE VARIABLES A DESCARGAR
+
+El sistema debe construir una lista maestra de variables dividida en:
+
+A. Variables de Mercado
+
+Para cada clase de activo y región/moneda detectada en el catálogo del universo invertible, proponer y seleccionar variables de mercado como mínimo:
+
+Renta Fija Gobierno
+
+Curva de tipos (2Y, 5Y, 10Y, 30Y) del país/región relevante.
+
+Spreads de tipos (10Y–2Y, 10Y–3M).
+
+Índices de bonos soberanos por región (si aplica).
+
+Renta Fija Corporativa (EUR, USD, otras)
+
+Spreads de crédito por rating (IG, HY) y por divisa.
+
+Índices de crédito corporativo (IG, HY) por región/divisa.
+
+Indicadores de stress financiero (ej. índices de “financial conditions” si están disponibles).
+
+Renta Variable (USD, EUR, Otros)
+
+Índices bursátiles principales por país/región del activo.
+
+Índices sectoriales relevantes según el sector del ETF.
+
+Volatilidad implícita (ej. VIX para equity USA, índices de volatilidad regionales si proceden).
+
+Divisas / FX
+
+Tipos de cambio spot relevantes entre la moneda base del sistema y la moneda del activo.
+
+Medidas de carry (diferencial de tipos de interés entre monedas, si es viable).
+
+Otros Factores de Mercado Relevantes
+
+Índices de materias primas si el universo incluye activos ligados a commodities.
+
+Índices de volatilidad de tipos de interés (ej. MOVE) para activos de renta fija, si se consideran relevantes.
+
+B. Variables Macroeconómicas
+
+Para cada país/región vinculado a los activos del universo:
+
+Actividad y Crecimiento
+
+PIB real (nivel y/o variación interanual).
+
+PMI manufacturero y de servicios.
+
+Producción industrial.
+
+Ventas minoristas.
+
+Inflación y Política Monetaria
+
+IPC general e IPC subyacente.
+
+Objetivo de inflación (si está disponible).
+
+Tipo oficial de política monetaria (Fed Funds, ECB deposit facility, etc.).
+
+Curva corta de tipos (ej. 3M, 6M, 1Y) como proxy de expectativas de tipos.
+
+Empleo
+
+Tasa de desempleo.
+
+Creación de empleo / Non-Farm Payrolls (para EEUU), si procede.
+
+Beneficios Corporativos y Valoración
+
+EPS agregados por índice/región si están disponibles en fuentes públicas.
+
+Métricas agregadas de valoración (PER, CAPE u otros) si son accesibles a través de fuentes abiertas.
+
+Riesgo de Crédito y Condiciones Financieras
+
+Spreads de crédito soberano y corporativo (si hay proxies públicos).
+
+Índices de condiciones financieras (Financial Conditions Index) si existen fuentes abiertas.
+
+III. REQUISITOS DEL PROCESO AUTOMATIZADO DE DESCARGA
+
+El sistema debe:
+
+Mapeo Activo → Región/Clase → Factores
+
+Leer el catálogo del universo invertible.
+
+Para cada activo, identificar:
+
+Clase de activo
+
+Región/país principal
+
+Moneda
+
+A partir de ello, asignar un conjunto de variables de mercado y macro relevantes.
+
+Selección de Fuentes de Datos Públicas
+
+Proponer para cada variable una o varias fuentes públicas prioritarias (ejemplos: FRED, ECB, Eurostat, OCDE, Banco Mundial, bancos centrales nacionales).
+
+Para cada variable seleccionada, especificar:
+
+Fuente
+
+Identificador/ticker/ID de serie
+
+Frecuencia nativa (diaria, mensual, trimestral)
+
+Rango histórico disponible estimado
+
+Generación de Código de Descarga
+
+Generar código en Python (modificable a otro lenguaje si se indica en la conversación) que:
+
+Conecte con las APIs o endpoints de descarga de las fuentes seleccionadas.
+
+Descargue la historia completa disponible de cada serie.
+
+Permita actualizaciones incrementales (ej. función actualizar_series() que solo descargue los datos nuevos).
+
+Incluir:
+
+Manejo de errores (series no disponibles, cambios de ID, límites de API).
+
+Logs básicos de descarga (qué se descargó, cuándo, y desde dónde).
+
+Alineación Temporal y Transformaciones
+
+Convertir las series a una frecuencia de trabajo coherente con el modelo (por ejemplo, diaria y/o mensual).
+
+Especificar claramente:
+
+Método de agregación (último dato del mes, promedio, suma, etc.).
+
+Tratamiento de festivos y fines de semana (forward fill, backward fill, o dejar NA).
+
+Documentar cualquier transformación (diferencias, log-diferencias, cambios interanuales, normalizaciones).
+
+Gestión de Cobertura Temporal
+
+Intentar cubrir un horizonte histórico de hasta 25 años cuando sea posible, para permitir análisis de estacionalidad y ciclos largos.
+
+Si una serie no dispone de 25 años de historia:
+
+Indicar claramente el periodo disponible.
+
+No inventar datos ni rellenar artificialmente la historia.
+
+IV. OUTPUTS ESPERADOS
+
+El sistema debe generar como mínimo:
+
+Dataframe Maestro de Factores
+
+Índex: Fecha
+
+Columnas: Una columna por variable (macro/mercado), con nombres estandarizados (ej. US_GDP_YoY, EZ_CPI_Core, US10Y_Yield, EURUSD_FX, EU_IG_Credit_Spread, etc.).
+
+Metadatos o estructura asociada que permita saber:
+
+Fuente
+
+ID de la serie
+
+Frecuencia original
+
+Transformaciones aplicadas
+
+Mapeo Activo–Factor
+
+Tabla (o Dataframe) que indique, por cada activo del universo invertible:
+
+ID del activo
+
+Clase de activo / Región / Moneda
+
+Lista de factores macro y de mercado asociados (por nombre de columna del Dataframe maestro).
+
+Diccionario de Datos para Auditoría
+
+Para cada variable:
+
+Nombre de la columna
+
+Descripción económica
+
+Fuente y enlace/API base
+
+ID/ticker en la fuente
+
+Unidad (%, niveles, índices, etc.)
+
+Frecuencia de publicación
+
+Periodo disponible (fecha inicio/fin)
+
+Transformaciones aplicadas (log, diferencias, etc.)
+
+Código Reproducible
+
+Script(s) claramente estructurados para:
+
+def descargar_todas_las_series():
+
+def actualizar_series_existentes():
+
+Comentados de forma que facilite la revisión por auditoría y/o por otros desarrolladores.
+
+V. REGLAS Y RESTRICCIONES
+
+No inventar datos ni IDs
+
+Si no se encuentra una serie concreta en una fuente pública, indicarlo explícitamente y proponer alternativas cercanas (ej. índice regional en lugar de país, proxy similar, etc.).
+
+Trazabilidad completa
+
+Toda variable utilizada debe poder rastrearse hasta una fuente concreta y un ID de serie.
+
+Coherencia con el GRI y el Intérprete
+
+Priorizar variables que tengan sentido dentro del marco del GRI (Ciclo de Mercado + Ciclo Económico) y del Intérprete (Momentum, Tendencia, Seasonality) descritos en los documentos adjuntos.
+
+Documentar brevemente por qué cada grupo de variables es relevante para medir ciclo económico o condiciones de mercado.
+
+Claridad en el Output
+
+Entregar ejemplos de cómo leer y utilizar las tablas resultantes para integrarlas con los cálculos del ACRI y sus componentes.

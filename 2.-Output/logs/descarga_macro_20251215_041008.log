@@ -1,0 +1,84 @@
+2025-12-15 04:10:13,507 - Mod_GRI_MacroEconomicos - INFO - Catálogo inicializado con 53 variables
+2025-12-15 04:10:13,508 - __main__ - INFO - Catálogo generado: 53 variables
+2025-12-15 04:10:13,527 - Mod_GRI_MacroEconomicos - INFO - Diccionario de datos exportado a: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\diccionario_datos_macro.csv
+2025-12-15 04:10:13,528 - Mod_GRI_MacroEconomicos - INFO - Total variables documentadas: 53
+2025-12-15 04:10:13,532 - Mod_GRI_MacroEconomicos - INFO - MapeoActivoFactores inicializado
+2025-12-15 04:10:14,418 - Mod_GRI_MacroEconomicos - INFO - Universo invertible cargado: 136 ETFs
+2025-12-15 04:10:14,433 - Mod_GRI_MacroEconomicos - INFO -   - Renta Variable: 92 ETFs
+2025-12-15 04:10:14,435 - Mod_GRI_MacroEconomicos - INFO -   - Renta Fija: 34 ETFs
+2025-12-15 04:10:14,443 - Mod_GRI_MacroEconomicos - INFO -   - Otros: 10 ETFs
+2025-12-15 04:10:14,498 - Mod_GRI_MacroEconomicos - INFO - Total mapeos: 136
+2025-12-15 04:10:24,003 - Mod_Descarga_API_Publica - INFO - Cliente FRED inicializado correctamente con API key
+2025-12-15 04:10:24,003 - Mod_GRI_MacroEconomicos - INFO - Catálogo inicializado con 53 variables
+2025-12-15 04:10:24,003 - Mod_Descarga_API_Publica - INFO - Orquestador de descarga inicializado
+2025-12-15 04:10:24,004 - Mod_Descarga_API_Publica - INFO - ====================================================================================================
+2025-12-15 04:10:24,004 - Mod_Descarga_API_Publica - INFO - INICIANDO DESCARGA COMPLETA DE VARIABLES MACRO Y DE MERCADO
+2025-12-15 04:10:24,004 - Mod_Descarga_API_Publica - INFO - ====================================================================================================
+2025-12-15 04:10:24,004 - Mod_Descarga_API_Publica - INFO - 
+[1/3] Descargando series desde FRED...
+2025-12-15 04:10:24,005 - Mod_Descarga_API_Publica - INFO - Iniciando descarga de 45 series desde FRED...
+2025-12-15 04:10:24,005 - Mod_Descarga_API_Publica - INFO - [1/45] Descargando US_SP500: S&P 500 Index
+2025-12-15 04:10:24,986 - Mod_Descarga_API_Publica - INFO - [2/45] Descargando US_NASDAQ: NASDAQ Composite Index
+2025-12-15 04:10:26,352 - Mod_Descarga_API_Publica - INFO - [3/45] Descargando US_RUSSELL2000: Russell 2000 Index
+2025-12-15 04:10:26,718 - Mod_Descarga_API_Publica - INFO - [4/45] Descargando GLOBAL_MSCI_WORLD: MSCI World Index
+2025-12-15 04:10:27,040 - Mod_Descarga_API_Publica - INFO - [5/45] Descargando EM_MSCI_EM: MSCI Emerging Markets Index
+2025-12-15 04:10:27,343 - Mod_Descarga_API_Publica - INFO - [6/45] Descargando US_VIX: VIX - CBOE Volatility Index
+2025-12-15 04:10:28,604 - Mod_Descarga_API_Publica - INFO - [7/45] Descargando EU_VSTOXX: VSTOXX - Euro STOXX 50 Volatility
+2025-12-15 04:10:28,905 - Mod_Descarga_API_Publica - INFO - [8/45] Descargando US_MOVE: MOVE Index - Bond Volatility
+2025-12-15 04:10:29,234 - Mod_Descarga_API_Publica - INFO - [9/45] Descargando US_YIELD_3M: US Treasury 3-Month Yield
+2025-12-15 04:10:30,545 - Mod_Descarga_API_Publica - INFO - [10/45] Descargando US_YIELD_2Y: US Treasury 2-Year Yield
+2025-12-15 04:10:31,934 - Mod_Descarga_API_Publica - INFO - [11/45] Descargando US_YIELD_5Y: US Treasury 5-Year Yield
+2025-12-15 04:10:33,072 - Mod_Descarga_API_Publica - INFO - [12/45] Descargando US_YIELD_10Y: US Treasury 10-Year Yield
+2025-12-15 04:10:41,242 - Mod_Descarga_API_Publica - INFO - [13/45] Descargando US_YIELD_30Y: US Treasury 30-Year Yield
+2025-12-15 04:10:42,625 - Mod_Descarga_API_Publica - INFO - [14/45] Descargando US_SPREAD_10Y2Y: US 10Y-2Y Spread
+2025-12-15 04:10:43,827 - Mod_Descarga_API_Publica - INFO - [15/45] Descargando US_SPREAD_10Y3M: US 10Y-3M Spread
+2025-12-15 04:10:45,059 - Mod_Descarga_API_Publica - INFO - [16/45] Descargando US_CREDIT_IG_SPREAD: ICE BofA US Corporate IG OAS
+2025-12-15 04:10:46,239 - Mod_Descarga_API_Publica - INFO - [17/45] Descargando US_CREDIT_HY_SPREAD: ICE BofA US High Yield OAS
+2025-12-15 04:10:47,421 - Mod_Descarga_API_Publica - INFO - [18/45] Descargando EU_CREDIT_IG_SPREAD: ICE BofA Euro Corporate IG OAS
+2025-12-15 04:10:49,149 - Mod_Descarga_API_Publica - INFO - [19/45] Descargando EU_CREDIT_HY_SPREAD: ICE BofA Euro High Yield OAS
+2025-12-15 04:10:52,202 - Mod_Descarga_API_Publica - INFO - [20/45] Descargando EM_CREDIT_SPREAD: JPM EMBI Global Spread
+2025-12-15 04:10:53,443 - Mod_Descarga_API_Publica - INFO - [21/45] Descargando EU_YIELD_10Y: German Bund 10-Year Yield
+2025-12-15 04:10:53,803 - Mod_Descarga_API_Publica - INFO - [22/45] Descargando US_FINANCIAL_CONDITIONS: Chicago Fed National Financial Conditions Index
+2025-12-15 04:10:54,410 - Mod_Descarga_API_Publica - INFO - [23/45] Descargando US_GDP: US Real GDP
+2025-12-15 04:10:54,717 - Mod_Descarga_API_Publica - INFO - [24/45] Descargando US_CFNAI: Chicago Fed National Activity Index
+2025-12-15 04:10:55,238 - Mod_Descarga_API_Publica - INFO - [25/45] Descargando US_ISM_MANUFACTURING: ISM Manufacturing PMI
+2025-12-15 04:10:55,568 - Mod_Descarga_API_Publica - INFO - [26/45] Descargando US_ISM_SERVICES: ISM Services PMI
+2025-12-15 04:10:59,130 - Mod_Descarga_API_Publica - INFO - [27/45] Descargando US_INDUSTRIAL_PRODUCTION: Industrial Production Index
+2025-12-15 04:10:59,480 - Mod_Descarga_API_Publica - INFO - [28/45] Descargando US_RETAIL_SALES: Retail Sales
+2025-12-15 04:10:59,996 - Mod_Descarga_API_Publica - INFO - [29/45] Descargando US_CPI: Consumer Price Index
+2025-12-15 04:11:00,418 - Mod_Descarga_API_Publica - INFO - [30/45] Descargando US_CORE_CPI: Core CPI
+2025-12-15 04:11:01,766 - Mod_Descarga_API_Publica - INFO - [31/45] Descargando US_PCE: Personal Consumption Expenditures Price Index
+2025-12-15 04:11:02,878 - Mod_Descarga_API_Publica - INFO - [32/45] Descargando US_CORE_PCE: Core PCE
+2025-12-15 04:11:03,242 - Mod_Descarga_API_Publica - INFO - [33/45] Descargando US_INFLATION_EXPECTATIONS_5Y: 5-Year Breakeven Inflation Rate
+2025-12-15 04:11:04,460 - Mod_Descarga_API_Publica - INFO - [34/45] Descargando US_INFLATION_EXPECTATIONS_5Y5Y: 5-Year, 5-Year Forward Inflation Expectation
+2025-12-15 04:11:05,614 - Mod_Descarga_API_Publica - INFO - [35/45] Descargando US_UNEMPLOYMENT_RATE: Unemployment Rate
+2025-12-15 04:11:06,075 - Mod_Descarga_API_Publica - INFO - [36/45] Descargando US_NONFARM_PAYROLLS: Non-Farm Payrolls
+2025-12-15 04:11:06,452 - Mod_Descarga_API_Publica - INFO - [37/45] Descargando US_INITIAL_CLAIMS: Initial Unemployment Claims
+2025-12-15 04:11:06,965 - Mod_Descarga_API_Publica - INFO - [38/45] Descargando US_FED_FUNDS_RATE: Federal Funds Effective Rate
+2025-12-15 04:11:07,342 - Mod_Descarga_API_Publica - INFO - [39/45] Descargando EU_PMI_MANUFACTURING: Eurozone Manufacturing PMI
+2025-12-15 04:11:07,654 - Mod_Descarga_API_Publica - INFO - [40/45] Descargando CN_GDP: China Real GDP
+2025-12-15 04:11:07,943 - Mod_Descarga_API_Publica - INFO - [41/45] Descargando CN_PMI_MANUFACTURING: China Manufacturing PMI
+2025-12-15 04:11:08,226 - Mod_Descarga_API_Publica - INFO - [42/45] Descargando FX_EURUSD: EUR/USD Exchange Rate
+2025-12-15 04:11:09,920 - Mod_Descarga_API_Publica - INFO - [43/45] Descargando FX_GBPUSD: GBP/USD Exchange Rate
+2025-12-15 04:11:11,071 - Mod_Descarga_API_Publica - INFO - [44/45] Descargando FX_USDJPY: USD/JPY Exchange Rate
+2025-12-15 04:11:13,269 - Mod_Descarga_API_Publica - INFO - [45/45] Descargando FX_USDCHF: USD/CHF Exchange Rate
+2025-12-15 04:11:14,545 - Mod_Descarga_API_Publica - INFO - Descarga FRED completada: 34/45 series (75.6%)
+2025-12-15 04:11:14,545 - Mod_Descarga_API_Publica - INFO - 
+[2/3] Descargando índices desde Yahoo Finance...
+2025-12-15 04:11:14,546 - Mod_Descarga_API_Publica - INFO - Descargando US_RUSSELL2000: Russell 2000 Index
+2025-12-15 04:11:14,723 - Mod_Descarga_API_Publica - INFO - Descargando EU_STOXX600: STOXX Europe 600
+2025-12-15 04:11:14,831 - Mod_Descarga_API_Publica - INFO - Descargando GLOBAL_MSCI_WORLD: MSCI World Index
+2025-12-15 04:11:14,939 - Mod_Descarga_API_Publica - INFO - Descargando EM_MSCI_EM: MSCI Emerging Markets Index
+2025-12-15 04:11:15,045 - Mod_Descarga_API_Publica - INFO - 
+[3/3] Descarga desde ECB/OECD: TODO (implementación futura)
+2025-12-15 04:11:15,046 - Mod_Descarga_API_Publica - INFO - 
+[4/4] Construyendo DataFrame maestro...
+2025-12-15 04:11:15,130 - Mod_Descarga_API_Publica - INFO - DataFrame maestro construido: 7909 filas x 34 columnas
+2025-12-15 04:11:15,131 - Mod_Descarga_API_Publica - INFO - Rango temporal: 2000-01-01 a 2025-12-12
+2025-12-15 04:11:15,331 - Mod_Descarga_API_Publica - INFO - DataFrame maestro exportado a: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\df_maestro_variables_macro.csv
+2025-12-15 04:11:15,335 - Mod_Descarga_API_Publica - INFO - DataFrame maestro exportado (pickle): C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\df_maestro_variables_macro.pkl
+2025-12-15 04:11:15,358 - Mod_Descarga_API_Publica - INFO - Metadata de descarga exportada a: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\metadata_descarga_series.csv
+2025-12-15 04:11:15,359 - Mod_Descarga_API_Publica - INFO - 
+====================================================================================================
+2025-12-15 04:11:15,359 - Mod_Descarga_API_Publica - INFO - DESCARGA COMPLETADA: 34 series descargadas
+2025-12-15 04:11:15,360 - Mod_Descarga_API_Publica - INFO - ====================================================================================================

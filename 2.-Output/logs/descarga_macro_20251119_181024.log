@@ -1,0 +1,10 @@
+2025-11-19 18:10:28,217 - Mod_GRI_MacroEconomicos - INFO - Catálogo inicializado con 53 variables
+2025-11-19 18:10:28,219 - __main__ - INFO - Catálogo generado: 53 variables
+2025-11-19 18:10:28,245 - Mod_GRI_MacroEconomicos - INFO - Diccionario de datos exportado a: C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas\2.-Output\data\diccionario_datos_macro.csv
+2025-11-19 18:10:28,246 - Mod_GRI_MacroEconomicos - INFO - Total variables documentadas: 53
+2025-11-19 18:10:28,249 - Mod_GRI_MacroEconomicos - INFO - MapeoActivoFactores inicializado
+2025-11-19 18:10:29,025 - Mod_GRI_MacroEconomicos - INFO - Universo invertible cargado: 142 ETFs
+2025-11-19 18:10:29,037 - Mod_GRI_MacroEconomicos - INFO -   - Equities: 93 ETFs
+2025-11-19 18:10:29,040 - Mod_GRI_MacroEconomicos - INFO -   - Fixed Income: 45 ETFs
+2025-11-19 18:10:29,053 - Mod_GRI_MacroEconomicos - INFO -   - Otros: 4 ETFs
+2025-11-19 18:10:29,107 - Mod_GRI_MacroEconomicos - INFO - Total mapeos: 142
