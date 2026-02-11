@@ -1,0 +1,28 @@
+V001_Ticker,V001_Name,V001_TipoActivo,V001_ZonaGeografica,V001_Moneda,Clasificacion_L1
+SPY,SPDR S&P 500 ETF Trust,Renta Variable,USA,USD,RV - Large Cap
+IVV,iShares Core S&P 500 ETF,Renta Variable,USA,USD,RV - Large Cap
+VOO,Vanguard S&P 500 ETF,Renta Variable,USA,USD,RV - Large Cap
+QQQ,Invesco QQQ Trust,Renta Variable,USA,USD,RV - Tecnologia
+IWM,iShares Russell 2000 ETF,Renta Variable,USA,USD,RV - Small Cap
+VGK,Vanguard FTSE Europe ETF,Renta Variable,Europe,EUR,RV - Europa
+EZU,iShares MSCI Eurozone ETF,Renta Variable,Europe,EUR,RV - Europa
+IEUR,iShares Core MSCI Europe ETF,Renta Variable,Europe,EUR,RV - Europa
+VWO,Vanguard FTSE Emerging Markets ETF,Renta Variable,Emerging Markets,USD,RV - Emergentes
+EEM,iShares MSCI Emerging Markets ETF,Renta Variable,Emerging Markets,USD,RV - Emergentes
+ACWI,iShares MSCI ACWI ETF,Renta Variable,Global,USD,RV - Global
+VT,Vanguard Total World Stock ETF,Renta Variable,Global,USD,RV - Global
+EWJ,iShares MSCI Japan ETF,Renta Variable,Japan,JPY,RV - Japon
+MCHI,iShares MSCI China ETF,Renta Variable,Asia Ex-Japan,USD,RV - Asia
+TLT,iShares 20+ Year Treasury Bond ETF,Renta Fija,USA,USD,RF - Gobierno
+IEF,iShares 7-10 Year Treasury Bond ETF,Renta Fija,USA,USD,RF - Gobierno
+SHY,iShares 1-3 Year Treasury Bond ETF,Renta Fija,USA,USD,RF - Gobierno
+LQD,iShares iBoxx $ Investment Grade Corporate Bond ETF,Renta Fija,USA,USD,RF - Corporativa
+HYG,iShares iBoxx $ High Yield Corporate Bond ETF,Renta Fija,USA,USD,RF - High Yield
+JNK,SPDR Bloomberg High Yield Bond ETF,Renta Fija,USA,USD,RF - High Yield
+EMB,iShares JP Morgan USD Emerging Markets Bond ETF,Renta Fija,Emerging Markets,USD,RF - Emergentes
+BNDX,Vanguard Total International Bond ETF,Renta Fija,Global,USD,RF - Internacional
+IGOV,iShares International Treasury Bond ETF,Renta Fija,Global,USD,RF - Gobierno
+VCIT,Vanguard Intermediate-Term Corporate Bond ETF,Renta Fija,USA,USD,RF - Corporativa
+VCSH,Vanguard Short-Term Corporate Bond ETF,Renta Fija,USA,USD,RF - Corporativa
+BIL,SPDR Bloomberg 1-3 Month T-Bill ETF,Monetary,USA,USD,MONETARIO
+SHV,iShares Short Treasury Bond ETF,Monetary,USA,USD,MONETARIO

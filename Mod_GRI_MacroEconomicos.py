@@ -1,19 +1,19 @@
 """
-SISTEMA DE DESCARGA AUTOMÁTICA DE VARIABLES MACRO Y DE MERCADO
+SISTEMA DE DESCARGA AUTOMATICA DE VARIABLES MACRO Y DE MERCADO
 ================================================================
 
 Objetivo:
-    Descargar y actualizar automáticamente series históricas de variables macroeconómicas
-    y de mercado desde fuentes públicas (FRED, ECB, Eurostat, OECD) para alimentar el
-    cálculo del GRI (Global Risk Indicator), Intérprete y ACRI.
+    Descargar y actualizar automaticamente series historicas de variables macroeconomicas
+    y de mercado desde fuentes publicas (FRED, ECB, Eurostat, OECD) para alimentar el
+    calculo del GRI (Global Risk Indicator), Interprete y ACRI.
 
 Estructura:
-    - GRI = Ciclo de Mercado + Ciclo Económico
-    - Intérprete = Momentum + Tendencia + Seasonality
+    - GRI = Ciclo de Mercado + Ciclo Economico
+    - Interprete = Momentum + Tendencia + Seasonality
 
 Autor: Sistema Automatizado GRI
 Fecha: 2025-01-19
-Versión: 1.0
+Version: 2.0 (Parametrizado para GitHub)
 """
 
 import pandas as pd
@@ -25,35 +25,65 @@ from typing import Dict, List, Tuple, Optional
 import warnings
 warnings.filterwarnings('ignore')
 
+# Importar configuracion global
+from config import config, validar_archivo_catalogo, mostrar_formato_esperado, COLUMNAS_REQUERIDAS_CATALOGO
+
 # ============================================================================
-# CONFIGURACIÓN GLOBAL
+# CONFIGURACION GLOBAL (usando modulo config.py)
 # ============================================================================
 
-# Directorio base del proyecto
-BASE_DIR = Path(r"C:\Trabajo\3.-Proyectos\3.-Proyectos\2.-P002_Creand\5.-Presentacion Noviembre\1.-Creacion Nueva Cartera Etfs\3.-Agente GPT\1.-Agente GRI\3.-Generacion Series MacroEconomicas")
-INPUT_DIR = BASE_DIR / "1.-InputPrompt" / "1.-Input" / "1.-Input"
-OUTPUT_DIR = BASE_DIR / "2.-Output"
-DATA_DIR = OUTPUT_DIR / "data"
-LOGS_DIR = OUTPUT_DIR / "logs"
+# Propiedades accesibles para compatibilidad con codigo existente
+# Estas se obtienen dinamicamente de la configuracion
+def _get_base_dir():
+    return config.base_dir
 
-# Crear directorios si no existen
-for directory in [OUTPUT_DIR, DATA_DIR, LOGS_DIR]:
-    directory.mkdir(parents=True, exist_ok=True)
+def _get_data_dir():
+    return config.data_dir
 
-# Configurar logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(LOGS_DIR / f'descarga_macro_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'),
-        logging.StreamHandler()
-    ]
-)
+def _get_logs_dir():
+    return config.logs_dir
+
+# Aliases para compatibilidad con imports externos
+BASE_DIR = property(lambda self: config.base_dir)
+DATA_DIR = property(lambda self: config.data_dir)
+LOGS_DIR = property(lambda self: config.logs_dir)
+
+# Variables que seran usadas por otros modulos
+def get_data_dir():
+    """Obtiene el directorio de datos configurado."""
+    return config.data_dir
+
+def get_logs_dir():
+    """Obtiene el directorio de logs configurado."""
+    return config.logs_dir
+
+def get_fecha_inicio_objetivo():
+    """Obtiene la fecha de inicio objetivo configurada."""
+    return config.fecha_inicio_objetivo
+
+# Configurar logging de forma diferida (para evitar crear archivos antes de configurar rutas)
 logger = logging.getLogger(__name__)
 
-# Horizonte histórico objetivo (25 años para seasonality)
-HORIZONTE_HISTORICO_ANOS = 25
-FECHA_INICIO_OBJETIVO = datetime.now() - timedelta(days=365 * HORIZONTE_HISTORICO_ANOS)
+def configurar_logging():
+    """Configura el logging una vez que las rutas estan definidas."""
+    config.inicializar_directorios()
+
+    # Limpiar handlers existentes
+    logger.handlers.clear()
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(config.logs_dir / f'descarga_macro_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'),
+            logging.StreamHandler()
+        ],
+        force=True
+    )
+
+# Horizonte historico objetivo (25 anos para seasonality)
+HORIZONTE_HISTORICO_ANOS = config.horizonte_historico_anos
+FECHA_INICIO_OBJETIVO = config.fecha_inicio_objetivo
 
 # ============================================================================
 # CATÁLOGO MAESTRO DE VARIABLES - DEFINICIONES
@@ -781,13 +811,13 @@ class CatalogVariablesMacro:
 
     def exportar_diccionario_datos(self, filepath: Path = None) -> pd.DataFrame:
         """
-        Exporta el diccionario de datos completo a CSV para auditoría.
+        Exporta el diccionario de datos completo a CSV para auditoria.
 
         Returns:
             DataFrame con el diccionario de datos
         """
         if filepath is None:
-            filepath = DATA_DIR / "diccionario_datos_macro.csv"
+            filepath = config.data_dir / "diccionario_datos_macro.csv"
 
         registros = []
         for codigo, metadata in self.catalogo_completo.items():
@@ -824,39 +854,79 @@ class MapeoActivoFactores:
     macro/mercado relevantes para cada uno.
     """
 
-    def __init__(self, catalogo: CatalogVariablesMacro):
+    def __init__(self, catalogo: CatalogVariablesMacro, ruta_catalogo_etfs: Path = None):
         """
         Inicializa el mapeo.
 
         Args:
-            catalogo: Instancia del catálogo de variables macro
+            catalogo: Instancia del catalogo de variables macro
+            ruta_catalogo_etfs: Ruta al archivo Excel/CSV con el catalogo de ETFs.
+                                Si no se proporciona, se usa la ruta de la configuracion global.
         """
         self.catalogo = catalogo
-        #self.ruta_universo = INPUT_DIR / "4.-Catalogo Universo Etfs Cruzado Creand_142.xlsx"
-        self.ruta_universo = INPUT_DIR / "4.-Catalogo Universo Etfs Cruzado DiverInvest_136.xlsx"
+
+        # Usar ruta proporcionada o la de la configuracion global
+        if ruta_catalogo_etfs is not None:
+            self.ruta_universo = Path(ruta_catalogo_etfs)
+        elif config.ruta_catalogo_etfs is not None:
+            self.ruta_universo = config.ruta_catalogo_etfs
+        else:
+            # Intentar buscar en el directorio de input por defecto
+            self.ruta_universo = None
+
         self.df_universo = None
         self.df_mapeo = None
 
         logger.info("MapeoActivoFactores inicializado")
 
-    def cargar_universo_invertible(self) -> pd.DataFrame:
-        """Carga el catálogo de ETFs del universo invertible."""
-        try:
-            self.df_universo = pd.read_excel(self.ruta_universo)
-            logger.info(f"Universo invertible cargado: {len(self.df_universo)} ETFs")
+    def cargar_universo_invertible(self, ruta_archivo: Path = None) -> pd.DataFrame:
+        """
+        Carga el catalogo de ETFs del universo invertible.
 
-            # Mostrar estadísticas
-            #logger.info(f"  - Equities: {len(self.df_universo[self.df_universo['V001_TipoActivo']=='Equities'])} ETFs")
-            #logger.info(f"  - Fixed Income: {len(self.df_universo[self.df_universo['V001_TipoActivo']=='Fixed Income'])} ETFs")
-            #logger.info(f"  - Otros: {len(self.df_universo[~self.df_universo['V001_TipoActivo'].isin(['Equities', 'Fixed Income'])])} ETFs")
-            logger.info(f"  - Renta Variable: {len(self.df_universo[self.df_universo['V001_TipoActivo']=='Renta Variable'])} ETFs")
-            logger.info(f"  - Renta Fija: {len(self.df_universo[self.df_universo['V001_TipoActivo']=='Renta Fija'])} ETFs")
-            logger.info(f"  - Otros: {len(self.df_universo[~self.df_universo['V001_TipoActivo'].isin(['Renta Variable', 'Renta Fija'])])} ETFs")
-            return self.df_universo
+        Args:
+            ruta_archivo: Ruta opcional al archivo. Si no se proporciona, usa self.ruta_universo
 
-        except Exception as e:
-            logger.error(f"Error al cargar universo invertible: {e}")
-            raise
+        Returns:
+            DataFrame con el catalogo de ETFs
+
+        Raises:
+            FileNotFoundError: Si no se encuentra el archivo
+            ValueError: Si el archivo no tiene el formato correcto
+        """
+        # Usar ruta proporcionada o la del constructor
+        ruta = ruta_archivo if ruta_archivo else self.ruta_universo
+
+        if ruta is None:
+            raise FileNotFoundError(
+                "No se ha configurado la ruta al catalogo de ETFs.\n"
+                "Por favor, proporcione la ruta al archivo Excel/CSV con el catalogo."
+            )
+
+        if not Path(ruta).exists():
+            raise FileNotFoundError(
+                f"No se encontro el archivo: {ruta}\n"
+                "Por favor, verifique que la ruta sea correcta."
+            )
+
+        # Validar formato del archivo
+        es_valido, mensaje, df = validar_archivo_catalogo(Path(ruta))
+
+        if not es_valido:
+            logger.error(f"Error de validacion del archivo:")
+            logger.error(mensaje)
+            mostrar_formato_esperado()
+            raise ValueError(mensaje)
+
+        self.df_universo = df
+        self.ruta_universo = Path(ruta)
+        logger.info(f"Universo invertible cargado: {len(self.df_universo)} ETFs")
+
+        # Mostrar estadisticas
+        tipos_activo = self.df_universo['V001_TipoActivo'].value_counts()
+        for tipo, count in tipos_activo.items():
+            logger.info(f"  - {tipo}: {count} ETFs")
+
+        return self.df_universo
 
     def generar_mapeo_completo(self) -> pd.DataFrame:
         """
@@ -901,7 +971,7 @@ class MapeoActivoFactores:
         self.df_mapeo = pd.DataFrame(mapeos)
 
         # Guardar mapeo
-        filepath_mapeo = DATA_DIR / "mapeo_activo_factores.csv"
+        filepath_mapeo = config.data_dir / "mapeo_activo_factores.csv"
         self.df_mapeo.to_csv(filepath_mapeo, index=False, encoding='utf-8-sig')
 
         logger.info(f"Mapeo Activo→Factores generado: {filepath_mapeo}")
